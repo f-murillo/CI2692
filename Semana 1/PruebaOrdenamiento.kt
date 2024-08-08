@@ -191,20 +191,24 @@ fun calcularDesviacionEstandar(tiempo: Array<Long>, media: Double): Double {
 }
 
 
+/*
+    Metodo principal
+*/
 fun main(args: Array<String>) {
-    val t: Int = args[0].toInt()
-    val n: Int = args[1].toInt()
-    val s = args[2]
-    val a = args[3]
+    // Almacenamos los valores ingresados por consola	
+    val t: Int = args[0].toInt() // Numero de intentos
+    val n: Int = args[1].toInt() // Numero de elementos a ordenar
+    val s = args[2]              // Tipo de secuencia 
+    val a = args[3]              // Algoritmos a usar 
 
 
-    // Primeramente, creamos la secuencia de n números a ordenar
+    // Creamos la secuencia de n números a ordenar
     val secuencia = crearSecuencia(s, n)
 
-    // Ahora, obtenemos una lista con los algoritmos a implementar
+    // Obtenemos una lista con los algoritmos a implementar
     val algoritmos = a.split(",")
 
-
+    // Por cada algoritmo de la lista de algoritmos
     for (algoritmo in algoritmos) {
         println("Comienzo de ejecución de algoritmo: $algoritmo")
         // Se realizan intentos de ordenamiento con el algoritmo actual y se mide el tiempo de ejecución
