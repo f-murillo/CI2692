@@ -235,14 +235,18 @@ fun escogeAlgoritmo(secuencia: Array<Number>, algoritmo: String, intentos: Int, 
 
 }
 
+
+/*
+    Metodo principal
+*/
 fun main(args: Array<String>) {
 
-    // Primeramente, debemos verificar que los parámetros ingresados sean correctos.
+    // Se verifica que los parámetros ingresados sean correctos.
 
-    // creamos una lista que contenga los tipos de secuencia válidos
+    // Se crea una lista que contenga los tipos de secuencia válidos
     val secuenciasValidas = arrayOf("random", "randomd", "sorted", "sortedd", "inv", "zu", "media")
 
-    // creamos una variable de tipo Map para los algoritmos
+    // Se crea una variable de tipo Map para los algoritmos
     val algoritmosMap = mapOf(
         "is" to "Insertion Sort", 
         "bs" to "Bubble Sort",
@@ -250,13 +254,14 @@ fun main(args: Array<String>) {
         "mi" to "Merge Sort Iterativo"
     )
 
+    // Se inicializan las variables que almacenaran los valores ingresados por consola
     var secuencia: String? = null
     var algoritmos: Array<String>? = null
     var intentos: Int? = null
     var tamanos: Array<Number>? = null
     var grafico: String? = null
 
-    // Ahora, verificamos las entradas ingresadas como parámetros
+    // Ahora, se verifican las entradas ingresadas como parámetros
     var i = 0
     while (i < args.size) {
         when (args[i]) {
@@ -348,40 +353,42 @@ fun main(args: Array<String>) {
     }
 
     
-    // Luego de verificar los parámetros, comenzamos a ejecutar los algoritmos
+    // Luego de verificar los parámetros, se comienza a ejecutar los algoritmos
 
-    // Primeramente, creamos cada variable que contendrá los parámetros del gráfico
+    // Se crea cada variable que contendrá los parámetros del gráfico
     val algorithmLabels = ArrayList<String>()
     val numElements = ArrayList<Int>()
     val minTimes = ArrayList<Double>()
     val averageTimes = ArrayList<Double>()
     val maxTimes = ArrayList<Double>()
 
-    
+    // Para cada algoritmo en la lista
     for (algoritmo in algoritmos) {
         // Creamos la lista que contiene los labels de los algoritmos, ordenados
         repeat(tamanos.size){
             algorithmLabels.add(algoritmosMap[algoritmo]!!)
         }
         
-        // Ahora, creamos la lista que contiene los tamaños de las entradas
+        // Creamos la lista que contiene los tamaños de las entradas
         for (n in tamanos) {
             numElements.add(n.toInt())
         }
 
-        // por cada algoritmo, presentamos la secuencia, su tipo y su tamaño, y ejecutamos
+        // Se presenta la secuencia, su tipo, su tamaño, y se ejecuta
         println("\nEjecución de algoritmo: ${algoritmosMap[algoritmo]}")
         println("----------------------------------------------------------------------------------------")
 
+	// Para cada tamano n 
         for (n in tamanos) {
+	    // Se crea una secuencia de tamano n
             var sec = crearSecuencia(secuencia, n.toInt())
             println("Secuencia de tipo $secuencia de $n elementos")
             println("----------------------------------------------------------------------------------------")
 
-            // Calculamos el tiempo de ejecución del algoritmo actual con la secuencia actual
+            // Se calcula el tiempo de ejecución del algoritmo actual con la secuencia actual
             val tiempos = escogeAlgoritmo(sec, algoritmo, intentos, algoritmosMap)
 
-            // Ahora, debemos añadir a los arreglos el tiempo mínimo, máximo y promedio de todos los intentos
+            // Ahora, se debe añadir a los arreglos el tiempo mínimo, máximo y promedio de todos los intentos,
             // convirtiendo el tiempo a segundos.
             minTimes.add(tiempos.min()/1000000000.0)
             maxTimes.add(tiempos.max()/1000000000.0)
@@ -389,9 +396,8 @@ fun main(args: Array<String>) {
         }
     }
 
-    // Ahora, graficamos con los datos obtenidos
+    // Se grafica con los datos obtenidos
     if (grafico != null){
-
         plotRuntime(
             "Graficas de tiempo de algoritmos de ordenamiento",
             ".",
@@ -406,5 +412,4 @@ fun main(args: Array<String>) {
             maxTimes.toTypedArray()
         )
     }
-  
 }
