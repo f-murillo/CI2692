@@ -23,7 +23,7 @@ class ListaDoblementeEnlazadaCircular(){
         return size
     }
 
-    // Metodo verifica si la lista esta vacia
+    // Metodo que verifica si la lista esta vacia
     fun estaVacia(): Boolean {
         return size == 0
     }
