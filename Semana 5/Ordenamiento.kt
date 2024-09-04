@@ -3,7 +3,7 @@ operator fun Number.compareTo(other: Number) = this.toDouble().compareTo(other.t
 /*
                                     NOTA
     Los algoritmos implementados en esta libreria estan basados en los algoritmos presentes en la bibliografia
-    del curso teorico, adaptados para su correcto funcionamiento en Kotlin
+    del curso teorico (del Cormen), adaptados para su correcto funcionamiento en Kotlin
 */
 
 /*
