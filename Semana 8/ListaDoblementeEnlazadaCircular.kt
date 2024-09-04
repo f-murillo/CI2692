@@ -32,9 +32,9 @@ class ListaDoblementeEnlazadaCircular(){
     fun agregarAlFrente(dato: Int){
         // Se crea el nuevo nodo
         val nuevoNodo = Nodo(dato, sentinel.next)
-        // Se cambia el nodo anterior del nuevo nodo para que apunte al nodo sentinela
+        // Se cambia el nodo anterior (del nuevo nodo) para que apunte al nodo sentinela
         nuevoNodo.cambiarPrev(sentinel) 
-         // Se cambia el nodo anterior del nodo siguiente al nuevo nodo para que apunte al nuevo nodo
+         // Se cambia el nodo anterior (del nodo que sigue al nuevo nodo) para que apunte al nuevo nodo
         sentinel.next!!.cambiarPrev(nuevoNodo)
         // Se cambia el nodo siguiente del nodo sentinela para que apunte al nuevo nodo
         sentinel.cambiarNext(nuevoNodo) 
@@ -46,9 +46,9 @@ class ListaDoblementeEnlazadaCircular(){
     fun agregarAlFinal(dato: Int){
         // Se crea el nuevo nodo
         val nuevoNodo = Nodo(dato, sentinel)
-        // Se cambia el nodo anterior del nuevo nodo para que apunte al nodo anterior al nodo sentinela
+        // Se cambia el nodo anterior (del nuevo nodo) para que apunte al nodo anterior al nodo sentinela
         nuevoNodo.cambiarPrev(sentinel.prev!!)
-        // Se cambia el nodo siguiente del nodo anterior al nodo sentinela para que apunte al nuevo nodo 
+        // Se cambia el nodo siguiente (del nodo anterior al nodo sentinela) para que apunte al nuevo nodo 
         sentinel.prev!!.cambiarNext(nuevoNodo)
         // Se cambia el nodo anterior del nodo sentinela para que apunte al nuevo nodo 
         sentinel.cambiarPrev(nuevoNodo)
@@ -56,7 +56,7 @@ class ListaDoblementeEnlazadaCircular(){
         size++ 
     }
 
-    // Metodo que elimina el primer nodo con el dato dado
+    // Metodo que elimina el primer nodo encontrado con el dato dado
     fun eliminar(nodo: Nodo?){
         // Si la lista esta vacia, se lanza una excepcion
         if (estaVacia()) {
@@ -65,7 +65,7 @@ class ListaDoblementeEnlazadaCircular(){
         
         if(nodo == null || nodo == sentinel)
             throw IllegalStateException("El nodo no existe o es el sentinela")
-        // Se elimina el nodo, haciendo que el nodo previo al nodo a eliminar apunte al siguiente, y viceversa
+        // Se elimina el nodo, haciendo que el nodo previo (al nodo a eliminar) apunte al siguiente, y viceversa
         nodo.prev?.cambiarNext(nodo.next)
         nodo.next?.cambiarPrev(nodo.prev)
         // Se disminuye en uno el tamaño de la lista
