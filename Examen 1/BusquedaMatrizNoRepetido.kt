@@ -22,7 +22,7 @@
                  - Las dimensiones n y m corresponden a las dimensiones de la matriz del archivo
                  - La dimension m de la matriz es un numero impar
                  - Los elementos de la matriz se encuentran ordenados
-                 - El elemento x se encuentra en la matriz
+                 - El elemento x existe y se encuentra en la matriz
                  - La fila donde se encuentra x tiene un elemento no repetido     
 */
 
@@ -34,7 +34,7 @@ import java.io.File
 import java.io.FileReader
 
 /*
-    Funcion que usa la busqueda binaria recursiva en una columna de una matriz para hallar un elemento x 
+    Funcion que usa la busqueda binaria recursiva en una columna C de una matriz para hallar un elemento x 
     Complejidad: O(logn)
 */
 fun busquedaBinariaRec(C: IntArray, i: Int, j: Int, x: Int): Int {
@@ -80,7 +80,7 @@ fun buscaNoRepetido(F: IntArray, inicio: Int, fin: Int): Int {
     // Se divide el arreglo en dos
     val mitad = (inicio + fin) / 2
 
-    /* Si el indice medio es par y el elemento en la posicion media es igual al elemento en la posicion media + 1,
+    /* Si el indice medio es par y el elemento en la posicion mitad es igual al elemento en la posicion mitad + 1,
        entonces el elemento no repetido esta en la segunda mitad del arreglo.
        De lo contrario, el elemento no repetido esta en la primera mitad del arreglo.
        Importante: ademas de las condiciones ya expuestas, tambien se verifica que el valor mitad se 
@@ -102,7 +102,7 @@ fun buscaNoRepetido(F: IntArray, inicio: Int, fin: Int): Int {
 */
 
 fun encuentraNoRepetido(M: Array<IntArray>, x: Int): Int{
-    // Primero se obtiene la fila
+    // Primero se obtiene la fila donde esta x
     
     // Se inicializa el indice de la fila con -1
     var fila = -1
@@ -110,7 +110,7 @@ fun encuentraNoRepetido(M: Array<IntArray>, x: Int): Int{
     var i = 0
     /*
         Mientras que fila sea igual a -1, se buscara en cada columna de la matriz
-        la fila donde se encuentra el elemento x
+        la fila donde se encuentra el elemento x (recordar que por definicion del problema, el elemento x existe)
     */
     while(fila==-1){
         // Obtenemos la columna i
