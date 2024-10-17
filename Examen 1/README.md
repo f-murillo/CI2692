@@ -11,8 +11,8 @@ El programa recibe el archivo con la estructura mencionada, y retorna el element
 Para la busqueda de la fila a partir del elemento x, y la busqueda del elemento que no se repite en dicha fila, se aplica la tecnica Divide-And-Conquer
 
 OBSERVACION: el programa asume que la entrada es correcta, es decir:
-    - Las dimensiones n y m corresponden a las dimensiones de la matriz del archivo
-    - La dimension m de la matriz es un numero impar
-    - Los elementos de la matriz se encuentran ordenados
-    - El elemento x existe y se encuentra en la matriz
-    - La fila donde se encuentra x tiene un elemento no repetido     
+- Las dimensiones n y m corresponden a las dimensiones de la matriz del archivo
+- La dimension m de la matriz es un numero impar
+- Los elementos de la matriz se encuentran ordenados
+- El elemento x existe y se encuentra en la matriz
+- La fila donde se encuentra x tiene un elemento no repetido     
