@@ -122,25 +122,20 @@ fun genera_media(n: Int): Array<Number>{
     Poscondición: Devuelve una secuencia de n elementos del tipo especificado
 */
 fun crearSecuencia(tipoSecuencia: String, n: Int ): Array<Number> {
-    if(tipoSecuencia == "random") {
-        return genera_random(n)
-    } else if(tipoSecuencia == "randomd"){
-        return genera_randomd(n)
-    } else if(tipoSecuencia == "sorted") {
-        return genera_sorted(n)
-    } else if(tipoSecuencia == "sortedd"){
-        return genera_sortedd(n)
-    }else if(tipoSecuencia == "inv") {
-        return genera_inv(n)
-    } else if(tipoSecuencia == "zu") {
-        return genera_zu(n)
-    } else if(tipoSecuencia == "media") {
-        return genera_media(n)
-    } else{
-        // Si el tipo de secuencia no es ninguno de los anteriores, devuelve una secuencia ordenada por defecto
-        println("Error: Tipo de secuencia incorrecto. Se utilizará una secuencia ordenada")
-        return genera_sorted(n)
-    }
+    when(tipoSecuencia){
+	    "random" -> return genera_random(n)
+	    "randomd" -> return genera_randomd(n)
+	    "sorted" -> return genera_sorted(n)
+	    "sortedd" -> return genera_sorted(n)
+	    "inv" -> return genera_inv(n)
+	    "zu" -> return genera_zu(n)
+	    "media" -> return genera_media(n)
+	    else ->{
+        	// Si el tipo de secuencia no es ninguno de los anteriores, devuelve una secuencia ordenada por defecto
+        	println("Error: Tipo de secuencia incorrecto. Se utilizará una secuencia ordenada")
+        	return genera_sorted(n)		    
+	    }
+    }	
 }
 
 /**
