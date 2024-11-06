@@ -191,40 +191,22 @@ fun escogeAlgoritmo(secuencia: Array<Number>, algoritmo: String, intentos: Int, 
     val tiempoEjecucion = Array<Double>(intentos,{0.0})
     for (i in 0 until intentos) {
         val secuenciaCopia = secuencia.copyOf()
-
         val tiempoInicial = System.nanoTime()
 
         when(algoritmo){
-            "is" -> {
-                insertionSort(secuenciaCopia)
-            }
-            "bs" ->{ 
-                bubbleSort(secuenciaCopia)
-            }
-            "ms" -> {
-                mergeSort(secuenciaCopia)
-            }
-            "mi" -> {
-                mergeSortIt(secuenciaCopia)
-            }
-            "hs" -> {
-                heapSort(secuenciaCopia)
-            }
-            "qc" -> {
-                quicksort(secuenciaCopia)
-            }
-            "qd" -> {
-                dualPivotQuicksort(secuenciaCopia)
-            }
-            "cs" -> {
-                countingSort(secuenciaCopia)
-            }
-            "rs" -> {
-                radixSort(secuenciaCopia)
-            }
-        } 
+            "is" -> insertionSort(secuenciaCopia)
+            "bs" -> bubbleSort(secuenciaCopia)
+            "ms" -> mergeSort(secuenciaCopia)
+            "mi" -> mergeSortIt(secuenciaCopia)
+            "hs" -> heapSort(secuenciaCopia)
+            "qc" -> quicksort(secuenciaCopia)
+            "qd" -> dualPivotQuicksort(secuenciaCopia)
+            "cs" -> countingSort(secuenciaCopia)
+            "rs" -> radixSort(secuenciaCopia)
+        }
+	
         val tiempoFinal = System.nanoTime()
-
+	
         // Se verifica si la secuencia copia está ordenada
         if(!estaEnOrdenAscendente(secuenciaCopia)){
             // Si la secuencia copia no está ordenada, imprime un mensaje de error y termina la ejecución
