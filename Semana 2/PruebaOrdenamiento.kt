@@ -195,19 +195,12 @@ fun escogeAlgoritmo(secuencia: Array<Number>, algoritmo: String, intentos: Int, 
         val tiempoInicial = System.nanoTime()
 
         when(algoritmo){
-            "is" -> {
-                insertionSort(secuenciaCopia)
-            }
-            "bs" ->{ 
-                bubbleSort(secuenciaCopia)
-            }
-            "ms" -> {
-                mergeSort(secuenciaCopia)
-            }
-            "mi" -> {
-                mergeSortIt(secuenciaCopia)
-            }
-        } 
+            "is" -> insertionSort(secuenciaCopia)
+            "bs" -> bubbleSort(secuenciaCopia)
+            "ms" -> mergeSort(secuenciaCopia)
+            "mi" -> mergeSortIt(secuenciaCopia)
+        }
+	
         val tiempoFinal = System.nanoTime()
 
         // Se verifica si la secuencia copia está ordenada
