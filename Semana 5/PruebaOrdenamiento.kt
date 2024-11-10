@@ -172,6 +172,12 @@ fun calcularDesviacionEstandar(tiempo: Array<Double>, media: Double): Double {
 }
 
 
+/*
+    Funcion que imprime el mensaje de exito del algoritmo de ordenamiento, con su tiempo de ejecución
+    Llamada: imprimeMensajeE(tipoOrdenamiento, tiempos)
+    Precondicion: tipoOrdenamiento != "" && tiempos.size > 0 
+    Postcondicion: imprime correctamente el mensaje
+ */
 fun imprimeMensajeE(tipoOrdenamiento: String, tiempo: Array<Double>){
     if (tiempo.size > 1) {
         val media = tiempo.average()
@@ -187,6 +193,13 @@ fun imprimeMensajeE(tipoOrdenamiento: String, tiempo: Array<Double>){
     println("----------------------------------------------------------------------------------------")
 }
 
+
+/*
+    Funcion que escoge el algoritmo de ordenamiento a ejecutar, y obtiene sus tiempos de ejecución
+    Llamada: escogeAlgoritmo(secuencia, algoritmo, intentos, algoritmosMap)
+    Precondicion: secuencia.size > 0 && algoritmo != "" && intentos > 0 
+    Postcondicion: retorna un arreglo con los tiempos de ejecución del algoritmo escogido
+ */
 fun escogeAlgoritmo(secuencia: Array<Number>, algoritmo: String, intentos: Int, algoritmosMap: Map<String, String>,): Array<Double> {
     val tiempoEjecucion = Array<Double>(intentos,{0.0})
     for (i in 0 until intentos) {
