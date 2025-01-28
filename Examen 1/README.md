@@ -1,4 +1,4 @@
-Examen 1 - Franco Murillo - 1610782
+# Examen 1 - Franco Murillo - 1610782
 Programa que resuelve el problema de encontrar un elemento no repetido en una matriz usando la tecnica Divide-And-Conquer
 
 La entrada del programa es un archivo de texto con la siguiente estructura:
